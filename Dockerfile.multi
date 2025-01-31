@@ -1,6 +1,6 @@
-FROM quay.io/ncigdc/bio-alpine:latest AS builder
-
-MAINTAINER Charles Czysz <czysz@uchicago.edu>
+ARG REPOSITORY=docker.osdc.io
+ARG BUILDER_TAG=3.1.0
+FROM ${REPOSITORY}/ncigdc/amzn2023-builder:${BUILDER_TAG} AS builder
 
 ARG VERSION
 
@@ -25,3 +25,9 @@ RUN wget $SAMTOOLS_URL \
 	&& make -C samtools-$VERSION \
 	&& make -C samtools-$VERSION install \
 	&& rm -rf samtools-$VERSION
+
+# For a multi-stage build
+
+FROM ${REPOSITORY}/ncigdc/amzn2023:${BUILDER_TAG}
+
+COPY --from=builder /usr/local/* /usr/local/
