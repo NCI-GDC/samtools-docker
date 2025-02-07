@@ -25,4 +25,3 @@ RUN wget $SAMTOOLS_URL \
 	&& make install \
 	&& cd - \
 	&& rm -rf samtools-$VERSION
-
