@@ -11,7 +11,7 @@ RUN dnf install -y \
 	automake \
 	make \
 	gcc \
-	musl-devel \
+	musl-dev \
 	perl \
 	zlib-devel \
 	bzip2-devel \
