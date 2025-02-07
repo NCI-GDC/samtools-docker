@@ -11,7 +11,6 @@ RUN dnf install -y \
 	automake \
 	make \
 	gcc \
-	musl-dev \
 	perl \
 	zlib-devel \
 	bzip2-devel \
@@ -19,6 +18,8 @@ RUN dnf install -y \
 	wget \
 	libressl-devel \
 	ncurses-devel
+
+RUN apk add --no-cache musl-dev
 
 RUN wget $SAMTOOLS_URL \
 	&& tar xf samtools-$VERSION.tar.bz2 \
