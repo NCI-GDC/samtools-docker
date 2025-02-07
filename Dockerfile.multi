@@ -6,19 +6,19 @@ ARG VERSION
 
 ENV SAMTOOLS_URL=https://github.com/samtools/samtools/releases/download/$VERSION/samtools-$VERSION.tar.bz2
 
-RUN apk add \
+RUN dnf install -y \
 	autoconf \
 	automake \
 	make \
 	gcc \
-	musl-dev \
+	musl-devel \
 	perl \
-	zlib-dev \
-	bzip2-dev \
-	xz-dev \
+	zlib-devel \
+	bzip2-devel \
+	xz-devel \
 	wget \
-	libressl-dev \
-	ncurses-dev
+	libressl-devel \
+	ncurses-devel
 
 RUN wget $SAMTOOLS_URL \
 	&& tar xf samtools-$VERSION.tar.bz2 \
