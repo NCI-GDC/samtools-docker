@@ -16,8 +16,10 @@ RUN dnf install -y \
 	bzip2-devel \
 	xz-devel \
 	wget \
-	libressl-dev \
 	ncurses-devel \
+
+RUN yum install \
+        libressl-devel \
         musl-devel
 
 RUN wget $SAMTOOLS_URL \
