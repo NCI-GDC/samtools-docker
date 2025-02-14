@@ -4,7 +4,13 @@ FROM ${REPOSITORY}/ncigdc/amzn2023-builder:${BUILDER_TAG} AS builder
 
 ARG VERSION
 
-ENV SAMTOOLS_URL=https://github.com/samtools/samtools/releases/download/$VERSION/samtools-$VERSION.tar.bz2
+ADD https://github.com/samtools/samtools/releases/download/$VERSION/samtools-$VERSION.tar.bz2 /samtools.tar.bz2
+
+RUN tar -xvf /samtools.tar.bz2 \
+      && cd /samtools-$VERSION \
+      && ./configure \
+      && make \
+      && make install
 
 RUN dnf install -y \
 	autoconf \
@@ -17,10 +23,6 @@ RUN dnf install -y \
 	xz-devel \
 	wget \
 	ncurses-devel
-
-RUN yum install \
-        libressl-devel \
-        musl-devel
 
 RUN wget $SAMTOOLS_URL \
 	&& tar xf samtools-$VERSION.tar.bz2 \
