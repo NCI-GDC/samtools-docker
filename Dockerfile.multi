@@ -28,4 +28,4 @@ RUN dnf install -y \
 
 FROM ${REPOSITORY}/ncigdc/amzn2023:${BUILDER_TAG}
 
-COPY --from=builder /usr/local/* /usr/local/
+COPY --from=builder /usr/local /usr/local
