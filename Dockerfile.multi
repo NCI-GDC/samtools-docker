@@ -12,13 +12,13 @@ RUN dnf install -y \
 	make \
 	gcc \
 	perl \
-        musl-devel \
 	zlib-devel \
 	bzip2-devel \
 	xz-devel \
 	wget \
 	libressl-dev \
-	ncurses-devel
+	ncurses-devel \
+        musl-devel
 
 RUN wget $SAMTOOLS_URL \
 	&& tar xf samtools-$VERSION.tar.bz2 \
