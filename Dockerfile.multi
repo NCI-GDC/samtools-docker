@@ -16,7 +16,7 @@ RUN dnf install -y \
 	bzip2-devel \
 	xz-devel \
 	wget \
-	ncurses-devel \
+	ncurses-devel
 
 RUN yum install \
         libressl-devel \
