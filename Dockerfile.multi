@@ -12,15 +12,13 @@ RUN dnf install -y \
 	make \
 	gcc \
 	perl \
+        musl-devel \
 	zlib-devel \
 	bzip2-devel \
 	xz-devel \
 	wget \
-	libressl-devel \
+	libressl-dev \
 	ncurses-devel
-
-FROM alpine:3.18
-RUN apk add --no-cache musl-dev
 
 RUN wget $SAMTOOLS_URL \
 	&& tar xf samtools-$VERSION.tar.bz2 \
