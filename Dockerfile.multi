@@ -24,12 +24,6 @@ RUN dnf install -y \
 	wget \
 	ncurses-devel
 
-RUN wget $SAMTOOLS_URL \
-	&& tar xf samtools-$VERSION.tar.bz2 \
-	&& make -C samtools-$VERSION \
-	&& make -C samtools-$VERSION install \
-	&& rm -rf samtools-$VERSION
-
 # For a multi-stage build
 
 FROM ${REPOSITORY}/ncigdc/amzn2023:${BUILDER_TAG}
