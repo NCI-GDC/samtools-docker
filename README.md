@@ -1,1 +1,1 @@
-# samtools_docker
+GDC Samtools docker repository

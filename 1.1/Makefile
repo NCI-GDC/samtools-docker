@@ -39,4 +39,3 @@ build-docker:
 publish: docker-login
 	docker push ${DOCKER_IMAGE}
 	docker push ${DOCKER_IMAGE_HASH}
-
